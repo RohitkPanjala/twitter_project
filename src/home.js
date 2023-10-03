@@ -34,7 +34,7 @@ function HomeComponent() {
   
   <section>
     {
-      data.map((item)=>{
+      pdata.map((item)=>{
         <section key={item.id}>
        <img src={item.pimage} className='p-image'/>
        <p>{item.upost}</p>
