@@ -17,6 +17,7 @@ function HomeComponent() {
         console.log("Error Fetching Data: "+error)
       }
       }
+      fetchData();
   }, [])
   
 
@@ -32,13 +33,18 @@ function HomeComponent() {
 <div className="post-section">
   
   <section>
-  <img src='' className='p-image'/>
+    {
+      data.map((item)=>{
+        <section key={item.id}>
+       <img src={item.pimage} className='p-image'/>
+       <p>{item.upost}</p>
+
+       </section>
+      })
+    }
+  
   </section>
-  <p></p>
-  <section className='like-section'>like button</section>
-  <section>
-<p></p>
-  </section>
+  
 </div>
 
 </div>
