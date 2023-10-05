@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function LoginComponent() {
     const nav = useNavigate();
+    const nav2 = useNavigate();
     const [uemail, setUemail] = useState('');
     const [upass, setUpass] = useState('');
 
@@ -26,6 +27,10 @@ const handleLogin = () =>{
 
 }
 
+const regNav = () =>{
+  nav2('/register');
+}
+
   return (
     <div>
       <div className='main-comp'>
@@ -44,6 +49,7 @@ const handleLogin = () =>{
     </section>
     <button onClick={handleLogin}>Login</button>
 </form>
+<label>Not a member yet?</label><a href='/register'>Register</a>
 </div>
         </div>
         </div>

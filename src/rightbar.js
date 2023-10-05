@@ -3,7 +3,7 @@ import './App.css';
 function RightBarComponent() {
   return (
     <div>
-      <h3>RightBarComponent</h3>
+      {/* <h3>RightBarComponent</h3> */}
      <div>
       <input type="text" placeholder="Search" className="search-sec"/>
      </div>
