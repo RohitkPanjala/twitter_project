@@ -1,4 +1,4 @@
-const { insertPost, showPost, showUsers, insertUser } = require('./controller/controller');
+const { insertPost, showPost, showUsers, insertUser, uLogin } = require('./controller/controller');
 
 const router = require('express').Router();
 
@@ -13,5 +13,7 @@ router.get('/allposts', showPost);
 router.post('/adduser',insertUser);
 
 router.get('/allusers', showUsers);
+
+router.get('/userlogin', uLogin);
 
 module.exports = router;

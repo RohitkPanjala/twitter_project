@@ -19,6 +19,7 @@ function LeftBarComponent() {
           <a href="#verified">Verified</a>
           <a href="#profile">Profile</a>
           <a href="#more">More</a>   
+          <a href="/">Logout</a>
           <button className="lnav-btn" onClick={postCont}>Post</button>
       </div>         
     </div>

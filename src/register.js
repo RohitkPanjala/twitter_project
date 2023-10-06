@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function RegisterComponent() {
     const [fname, setFname] = useState('');
     const [lname, setLname] = useState('');
@@ -7,6 +8,7 @@ function RegisterComponent() {
     const [upass, setUpass] = useState('');
     const [uage, setUage] = useState('');
 
+    const navigate = useNavigate();
   const onFnmChng = (e) => {
      setFname(e.target.value);
   }
@@ -28,13 +30,27 @@ function RegisterComponent() {
 
  }
 
- const handleReg = (e) =>{
+ const handleReg = async (e) =>{
 e.preventDefault();
 
 if (fname.trim()==='' || lname.trim()==='' || uemail.trim()==='' || upass.trim()==='' || uage.trim()==='')
    alert("Please fill all the fields");
    else{
-     console.log("All fields filled: " +fname+" "+lname+" "+uemail+" "+upass+" "+uage);
+      try {
+         const response = await axios.post('http://localhost:3030/adduser', {
+           ufname:fname,
+           ulname:lname,
+           uemail:uemail,
+           upassword:upass,
+           age:uage
+         });
+         console.log("User Registration Successfull!!" +fname+" "+lname+" "+uemail+" "+upass+" "+uage);
+         // console.log("All fields filled: ");
+         navigate('/home');
+       } catch (error) {
+         console.error(error);
+       }
+     
    }
 
  }

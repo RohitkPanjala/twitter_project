@@ -4,12 +4,13 @@ function RightBarComponent() {
   return (
     <div>
       {/* <h3>RightBarComponent</h3> */}
-     <div>
+     <div className='right-nav'>
       <input type="text" placeholder="Search" className="search-sec"/>
-     </div>
-    <div className="news-sec">
+      <div className="news-sec">
       Whats Happening!
     </div>
+     </div>
+   
     </div>
   )
 }

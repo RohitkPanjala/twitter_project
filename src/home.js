@@ -13,7 +13,7 @@ function HomeComponent() {
         const response = await axios.get('http://localhost:3030/allposts');
         const resultData = response.data;
         setData(resultData);
-        console.log(resultData);
+        console.log("This is the data", data);
       } catch (error) {
         console.log("Error Fetching Data: "+error)
       }
@@ -30,18 +30,20 @@ function HomeComponent() {
 <div className='home-bar'>
 
 <h3>HomeComponent</h3>
+<h4>Posts</h4>
 <section>
     {
+      
       data.map((item)=>{
-        <section key={item.id}>
+      return  <section key={item.id}>
        <img src={item.pimage} className='p-image'/>
-       <p>{item.upost}</p>
+       <p className='post-content'>{item.upost}</p>
        </section>
       })
     }
   
   </section>
-<h4>Posts</h4>
+
 <div className="post-section"> 
 
   

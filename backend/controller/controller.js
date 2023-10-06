@@ -91,4 +91,4 @@ const showPost = (req,res) => {
 
 }
 
-module.exports = {insertPost, showPost, insertUser, showUsers};
+module.exports = {insertPost, showPost, insertUser, showUsers, uLogin};

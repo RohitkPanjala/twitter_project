@@ -91,9 +91,17 @@ text-align: center;
 }
 
 /* right bar Styling */
-div.right-bar{
+/* div.right-bar{
 float: right;
 width: 20%;
+height: 100%;
+} */
+.right-nav{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px; /* Adjust as needed */
+  height: 100%;
 }
 
 /* Search Bar */
@@ -293,4 +301,18 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.p-image{
+  justify-content: center;
+  height: 200px;
+  width: 250px;
+
+}
+
+/* home page styling */
+
+.home-bar{
+max-height:600px;
+  width: 40%;
+  overflow-y: auto;
 }
