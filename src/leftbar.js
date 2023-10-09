@@ -10,7 +10,7 @@ function LeftBarComponent() {
     <div> 
        <div className="sidenav">
           {/* <a href="#home">logo</a> */}
-          <a href="#home">Home</a>
+          <a href="/home">Home</a>
           <a href="#explore">Explore</a>
           <a href="#notifications">Notifications</a>
           <a href="#messages">Messages</a>

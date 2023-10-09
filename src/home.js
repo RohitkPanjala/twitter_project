@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { CCard, CCardImage, CCardBody, CCardTitle, CCardText, CButton } from '@coreui/react';
 import LeftBarComponent from './leftbar';
 import RightBarComponent from './rightbar';
 import {
@@ -32,39 +33,26 @@ function HomeComponent() {
    
   return (
     <div>    
-      {/* <div className="post-section"> 
-  
-  
-</div> */}
 <div className='home-bar'>
 
 <h3>HomeComponent</h3>
-{/* <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-<MDBCol>
-        <MDBCard>
-          <MDBCardImage
-            src='https://mdbootstrap.cdom/img/new/standard/city/041.webp'
-            alt='...'
-            position='top'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Card title</MDBCardTitle>
-            <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
-            </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      </MDBRow> */}
+
 <section>
+  
     {
+
+data.map((item)=>{
+  return  <><CCardImage orientation="top" src={item.pimage} className='p-image'/><CCardBody>
+    {/* <CCardTitle>Card title</CCardTitle> */}
+    <CCardText className='post-content'>{item.upost}</CCardText>
+    <CButton href="#">Delete Post</CButton>
+  </CCardBody></>
       
-      data.map((item)=>{
-      return  <section key={item.id}>
-       <img src={item.pimage} className='p-image'/>
-       <p className='post-content'>{item.upost}</p>
-       </section>
+      // data.map((item)=>{
+      // return  <section key={item.id}>
+      //  <img src={item.pimage} className='p-image'/>
+      //  <p className='post-content'>{item.upost}</p>
+      //  </section>
       })
     }
   
