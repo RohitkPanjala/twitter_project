@@ -91,4 +91,51 @@ const showPost = (req,res) => {
 
 }
 
+// User Login and SignUp Backend
+
+const usrLogin = async (req, res) => {
+const {uemail, upassword} = req.body
+
+try{
+   const check = await Userpost.collection.findOne({uemail:uemail})
+   if (check){
+    res.json("user exist");
+   }
+   else{
+    res.json("not exist");
+   }
+}
+catch(err){
+res.json("not exist");
+}
+
+}
+
+const usrSignup = async (req, res) => {
+  const {ufname, ulname,uemail, upassword, age } = req.body
+  const dataa = {
+    ufname:ufname,
+    ulname:ulname,
+    uemail: uemail,
+    upassword:upassword,
+    age:age
+  }
+  
+  try{
+     const check = await Userpost.collection.findOne({uemail:uemail})
+     if (check){
+      res.json("user exist");
+     }
+     else{
+      res.json("not exist");
+      await Userpost.collection.insertMany([dataa])
+     }
+  }
+  catch(err){
+  res.json("not exist");
+  }
+  
+  }
+
+
 module.exports = {insertPost, showPost, insertUser, showUsers, uLogin};
