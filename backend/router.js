@@ -1,4 +1,4 @@
-const { insertPost, showPost, showUsers, insertUser, uLogin } = require('./controller/controller');
+const { insertPost, showPost, showUsers, insertUser, uLogin, usrSignup, usrLogin } = require('./controller/controller');
 
 const router = require('express').Router();
 
@@ -14,6 +14,13 @@ router.post('/adduser',insertUser);
 
 router.get('/allusers', showUsers);
 
-router.get('/userlogin', uLogin);
+// router.get('/userlogin', uLogin);
+
+// Login and Signup
+
+router.post('/usersignup', usrSignup);
+ 
+router.post('/userloggedin', usrLogin)
+
 
 module.exports = router;

@@ -26,7 +26,7 @@ const uLogin = async (req,res) => {
 try{
   const logUser = new Userreg ({
     uemail:req.body.uemail,
-    upassword:req.body.upassword
+    upassword:req.body.upasswords
   })
   const user = await logUser.findOne({uemail, upassword});
   if (!user) {
@@ -97,7 +97,7 @@ const usrLogin = async (req, res) => {
 const {uemail, upassword} = req.body
 
 try{
-   const check = await Userpost.collection.findOne({uemail:uemail})
+   const check = await Userreg.collection.findOne({uemail:uemail})
    if (check){
     res.json("user exist");
    }
@@ -122,13 +122,13 @@ const usrSignup = async (req, res) => {
   }
   
   try{
-     const check = await Userpost.collection.findOne({uemail:uemail})
+     const check = await Userreg.collection.findOne({uemail:uemail})
      if (check){
       res.json("user exist");
      }
      else{
-      res.json("not exist");
-      await Userpost.collection.insertMany([dataa])
+      res.json("not exist:New user added");
+      await Userreg.collection.insertMany([dataa])
      }
   }
   catch(err){
@@ -138,4 +138,4 @@ const usrSignup = async (req, res) => {
   }
 
 
-module.exports = {insertPost, showPost, insertUser, showUsers, uLogin};
+module.exports = {insertPost, showPost, insertUser, showUsers, uLogin, usrSignup, usrLogin};
