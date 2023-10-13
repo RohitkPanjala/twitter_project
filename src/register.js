@@ -37,7 +37,7 @@ if (fname.trim()==='' || lname.trim()==='' || uemail.trim()==='' || upass.trim()
    alert("Please fill all the fields");
    else{
       try {
-         const response = await axios.post('http://localhost:3030/adduser', {
+         const response = await axios.post('http://localhost:3030/usersignup', {
            ufname:fname,
            ulname:lname,
            uemail:uemail,
@@ -46,7 +46,7 @@ if (fname.trim()==='' || lname.trim()==='' || uemail.trim()==='' || upass.trim()
          });
          console.log("User Registration Successfull!!" +fname+" "+lname+" "+uemail+" "+upass+" "+uage);
          // console.log("All fields filled: ");
-         navigate('/home');
+         navigate('/login');
        } catch (error) {
          console.error(error);
        }

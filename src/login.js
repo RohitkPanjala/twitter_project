@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginComponent() {
     const nav = useNavigate();
-    const nav2 = useNavigate();
+    // const nav2 = useNavigate();
     const [uemail, setUemail] = useState('');
     const [upass, setUpass] = useState('');
 
@@ -14,22 +15,39 @@ function LoginComponent() {
     const setPwd = (e) => {
         setUpass(e.target.value);
     }
-const handleLogin = () =>{
-   if (!uemail || !upass){
-    alert("Enter email and Password");
-   }
-   else if (uemail === "user@mymail.com" && upass === "password"){
-    nav('/home');
-   }
-   else{
-    alert("Please check your Credentials")
+const handleLogin = async(e) =>{
+  e.preventDefault();
+  try{
+      await axios.post("http://localhost:3030/userloggedin",{
+      uemail, upass
+     })
+       .then(res=>{
+         if (!uemail || !upass){
+          alert("Enter email and Password");
+     }
+         else if (res.data=="exist"){
+          nav('/home');
+          console.log("Its a success!!");
+     }
+         else if(res.data=="not exist"){
+          alert("You're not registred user. Please register too continue!!")
+     }
+    //      else{
+    //       alert("Please check your Credentials")
+    // }
+})
+
+  }
+   catch(error){
+       alert(error,"Unauthorized Login");
+
    }
 
 }
 
-const regNav = () =>{
-  nav2('/register');
-}
+// const regNav = () =>{
+//   nav2('/register');
+// }
 
   return (
     <div>
