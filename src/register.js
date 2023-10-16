@@ -46,7 +46,7 @@ if (fname.trim()==='' || lname.trim()==='' || uemail.trim()==='' || upass.trim()
          });
          console.log("User Registration Successfull!!" +fname+" "+lname+" "+uemail+" "+upass+" "+uage);
          // console.log("All fields filled: ");
-         navigate('/login');
+         navigate('/');
        } catch (error) {
          console.error(error);
        }
