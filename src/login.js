@@ -18,6 +18,7 @@ function LoginComponent() {
 
     const handleLogin = async(e) =>{
       e.preventDefault();
+      console.log(uemail,upass);
       try{
           await axios.post("http://localhost:3030/userloggedin",{
           uemail, upass
@@ -26,6 +27,7 @@ function LoginComponent() {
               if (res.data=="exist"){
               nav('/home');
               console.log("Its a success!!");
+              
          }
              else if(res.data=="not exist"){
               alert("You're not registred user. Please register too continue!!")
